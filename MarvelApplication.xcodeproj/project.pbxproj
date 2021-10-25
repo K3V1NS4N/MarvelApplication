@@ -205,6 +205,7 @@
 		6B300D42272095F1007D5EA1 /* ApiMockClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiMockClient.swift; sourceTree = "<group>"; };
 		6B300D4727209F19007D5EA1 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		6B300D4E27209FEF007D5EA1 /* GenericError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericError.swift; sourceTree = "<group>"; };
+		6B3BCDA027274877009EB1F0 /* MarvelApplication.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MarvelApplication.xcdatamodel; sourceTree = "<group>"; };
 		6B47E1B427212A88009C2500 /* CharactersListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListModel.swift; sourceTree = "<group>"; };
 		6B47E1B7272142CF009C2500 /* ReachabilityChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityChecker.swift; sourceTree = "<group>"; };
 		6B47E1BE272159FC009C2500 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
@@ -311,6 +312,7 @@
 				07591EF66CD5DDBFC801E4BD /* Pods */,
 				0A98FD33A5E2015D5075DEF8 /* Frameworks */,
 				6B7D6BCA2726F69500D48844 /* MarvelApplicationMock.plist */,
+				6B3BCD9F27274877009EB1F0 /* MarvelApplication.xcdatamodeld */,
 			);
 			sourceTree = "<group>";
 		};
@@ -621,7 +623,6 @@
 			children = (
 				6BC0821D2726E92200243B59 /* Tests */,
 				6BC082192726E89700243B59 /* Common */,
-				6BC0821A2726E8A200243B59 /* Models */,
 				6BC0821C2726E8B300243B59 /* Steps */,
 				6BC0821B2726E8AB00243B59 /* Screens */,
 				6BC082302726EF1F00243B59 /* Identifiers.swift */,
@@ -637,13 +638,6 @@
 				6B7D6BCC2726FA7D00D48844 /* Constants.swift */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		6BC0821A2726E8A200243B59 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		6BC0821B2726E8AB00243B59 /* Screens */ = {
@@ -1631,6 +1625,16 @@
 			currentVersion = 6B034E6D27206B41000DE72E /* MarvelApplication.xcdatamodel */;
 			name = MarvelApplication.xcdatamodeld;
 			path = ../MarvelApplication.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		6B3BCD9F27274877009EB1F0 /* MarvelApplication.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6B3BCDA027274877009EB1F0 /* MarvelApplication.xcdatamodel */,
+			);
+			currentVersion = 6B3BCDA027274877009EB1F0 /* MarvelApplication.xcdatamodel */;
+			path = MarvelApplication.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
