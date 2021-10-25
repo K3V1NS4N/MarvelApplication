@@ -1,0 +1,38 @@
+/* 
+  Localizable.strings
+  MarvelApplication
+
+  Created by K3V1NS4N on 21/10/21.
+  
+*/
+
+//Error cases
+
+//MARK: Api error
+"api.generic.error.title" = "Server Error";
+"api.generic.error.description" = "An error occurred while retrieving data from the server.";
+
+//MARK: Conection error
+"api.conection.error.title" = "No connection";
+"api.conection.error.description" = "Check your internet connection and try again.";
+
+//MARK: Character List Screen
+"screen.pagination.error.description" = "There was an error when loading more characters";
+"screen.pagination.connection.error.description" = "You don't have internet connection";
+
+// MARK: Common
+
+"reload.button.title" = "Reload";
+
+//Screens
+
+//MARK: Character List Screen
+"screen.character.list.title" = "Marvel";
+"screen.character.list.searchBar.placeholder" = "Search Characters";
+"screen.character.list.pagination.no.results" = "";
+"screen.character.list.no.results.title" = "Opps";
+"screen.character.list.no.results.description" = "There are no characters";
+
+
+//MARK: Character Detail Screen
+"screen.character.detail.empty.description" = "No description";

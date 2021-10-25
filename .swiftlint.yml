@@ -1,0 +1,21 @@
+disabled_rules: # rule identifiers to exclude from running
+- function_body_length
+- trailing_whitespace #xcode 9 is not trimming whitespace only lines
+- cyclomatic_complexity
+- file_length
+- function_parameter_count
+- large_tuple
+- identifier_name
+- block_based_kvo
+- implicit_getter
+- nesting
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+- Pods
+identifier_name:
+  min_length: 2
+line_length: 300
+type_body_length: 500
+file_length:
+  warning: 500 
+opt_in_rules:
+- force_unwrapping
