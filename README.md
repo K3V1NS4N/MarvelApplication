@@ -33,7 +33,7 @@ The app also needs to download the photos of all characters asynchronously, as w
 
 In order to serialize and deserialize data, the app makes use of the `CodableAlamofire` that lets you serialize and deserialize custom data types without writing any special code and without having to worry about losing your value types.
 
-Regarding the secure connection to the Marvel API, there are a `Public key` and a `private key` in the environment configuration of the app, these two keys are sent together with a `Timestamp` before being hashed with MD5, for which we use the `CryptoSwift` library.
+Regarding the secure connection to the Marvel API, there are a `Public key` and a `private key` in the environment configuration of the app, these two keys are sent together with a `Timestamp` after being hashed with MD5, for which we use the `CryptoSwift` library.
 
 # UnitTest and UITest
 The project includes a total of `22` unit tests and `4` automated tests to test the UI.
