@@ -17,7 +17,7 @@ protocol CharacterDetailInteractorPresenterProtocol: AnyObject {
     func didGetCharacterDetailError(error: CharacterDetailError)
 }
 
-class CharacterDetailPresenter  {
+class CharacterDetailPresenter {
  
     var router: CharacterDetailRouterProtocol?
     var interactor: CharacterDetailInteractorProtocol?

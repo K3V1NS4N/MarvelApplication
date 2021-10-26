@@ -13,7 +13,6 @@ public struct CharacterDetailViewModel {
     var imagePath: String?
     let imageExt: ImageExt?
     
-    
     internal init(id: Int, name: String, description: String, imagePath: String, imageExt: ImageExt) {
         self.id = id
         self.name = name
