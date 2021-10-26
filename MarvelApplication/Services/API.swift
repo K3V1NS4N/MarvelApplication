@@ -15,12 +15,7 @@ enum APIError {
 }
 
 enum API: URLRequestConvertible {
-    
-    struct Header {
-        static let apiToken = "X-ApiToken"
-        static let contentType = "Content-Type"
-    }
-    
+
     static var timeStamp: String?
     static var apiKey: String?
     static var hash: String?
