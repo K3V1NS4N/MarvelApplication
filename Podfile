@@ -1,10 +1,9 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '11.0'
+platform :ios, '12.0'
 source 'https://github.com/CocoaPods/Specs.git'
 
 
 def default_pods
-  # ------ Lottie--------------------------------------------------
   pod 'Alamofire', '~> 5.1.0'
   pod 'AlamofireImage'
   pod 'CodableAlamofire', '~> 1.2.1'
@@ -28,9 +27,15 @@ target 'MarvelApplication MOCK' do
 end
 
 target 'MarvelApplicationTests' do
-#  default_pods
   pod 'Alamofire', '~> 5.1.0'
   pod 'AlamofireImage'
   pod 'CodableAlamofire', '~> 1.2.1'
   pod 'CryptoSwift'
 end
+
+target 'MarvelApplicationUITests' do
+  pod 'Alamofire', '~> 5.1.0'
+  pod 'AlamofireImage'
+  pod 'CodableAlamofire', '~> 1.2.1'
+  pod 'CryptoSwift'
+end 
