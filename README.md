@@ -27,6 +27,8 @@ Open MarvelApplication.xcworkspace in Xcode.
 ## Technical description
 This app is based on the `VIPER` architecture, it separates the code further by single responsibility.
 
+The application has two targets, `MarvelApplication` which is the one that makes the calls to the official API and `MarvelApplication MOCK`, which mocks the responses with a stored json, to be able to continue developing even if there is no connection with the server.
+
 Among the libraries it uses, we have the HTTP network library `Alamofire`, which is used to make the Marvel API calls.
 
 The app also needs to download the photos of all characters asynchronously, as well as cache them to improve performance, for this, we have the `AlamofireImage` library, which simplifies this whole process.
