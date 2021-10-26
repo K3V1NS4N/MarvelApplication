@@ -118,7 +118,7 @@ private class MockCharacterDetailRouterToPresenter {
     
 }
 
-extension MockCharacterDetailRouterToPresenter: CharacterDetailRouterDelegate {
+extension MockCharacterDetailRouterToPresenter: CharacterDetailRouterProtocol {
 
 }
 
@@ -126,7 +126,7 @@ private class MockCharacterDetailInteractorToPresenter {
     var didGetCharacterDetail = false
 }
 
-extension MockCharacterDetailInteractorToPresenter: CharacterDetailInteractorDelegate {
+extension MockCharacterDetailInteractorToPresenter: CharacterDetailInteractorProtocol {
     func getCharacterDetail(characterId: Int) {
         didGetCharacterDetail = true
     }
@@ -146,7 +146,7 @@ private class MockCharacterDetailViewToPresenter {
     
 }
 
-extension MockCharacterDetailViewToPresenter: CharacterDetailViewControllerDelegate {
+extension MockCharacterDetailViewToPresenter: CharacterDetailViewControllerProtocol {
     func displayCharacter(model: CharacterDetailViewModel) {
         didDisplayCharacter = true
     }

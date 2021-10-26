@@ -6,13 +6,13 @@
 //
 
 import UIKit
-protocol CharacterListRouterDelegate: AnyObject {
+protocol CharacterListRouterProtocol: AnyObject {
     func goToCharacterDetail(characterId: Int)
 }
 
-class CharacterListRouter: CharacterListRouterDelegate {
+class CharacterListRouter: CharacterListRouterProtocol {
 
-    weak var presenter: CharacterListPresenterDelegate?
+    weak var presenter: CharacterListPresenterProtocol?
     weak var viewController: CharacterListViewController?
     
     static func createModule() -> CharacterListViewController? {

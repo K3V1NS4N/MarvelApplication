@@ -7,14 +7,14 @@
 
 import UIKit
 
-protocol CharacterListInteractorDelegate: AnyObject {
+protocol CharacterListInteractorProtocol: AnyObject {
     func getInitialCharacterList(name: String?)
     func getNextCharacters(offset: Int, name: String?)
 }
 
-class CharacterListInteractor: CharacterListInteractorDelegate, ReachabilityInteractor {
+class CharacterListInteractor: CharacterListInteractorProtocol, ReachabilityInteractor {
  
-    weak var presenter: CharacterListPresenterDelegate?
+    weak var presenter: CharacterListPresenterProtocol?
     var apiClient: APIClientProtocol
     
     init(apiClient: APIClientProtocol) {

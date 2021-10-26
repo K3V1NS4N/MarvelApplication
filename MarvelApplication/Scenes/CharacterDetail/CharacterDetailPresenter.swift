@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol CharacterDetailPresenterDelegate: AnyObject {
+protocol CharacterDetailPresenterProtocol: AnyObject {
     func viewDidLoad()
     func getCharacterDetail()
     func didGetCharacterDetail(characterDetail: CharactersListModelResponse)
@@ -15,15 +15,15 @@ protocol CharacterDetailPresenterDelegate: AnyObject {
 
 }
 
-class CharacterDetailPresenter: CharacterDetailPresenterDelegate {
+class CharacterDetailPresenter: CharacterDetailPresenterProtocol {
  
-    var router: CharacterDetailRouterDelegate?
-    var interactor: CharacterDetailInteractorDelegate?
-    weak var view: CharacterDetailViewControllerDelegate?
+    var router: CharacterDetailRouterProtocol?
+    var interactor: CharacterDetailInteractorProtocol?
+    weak var view: CharacterDetailViewControllerProtocol?
 
     private var characterId: Int?
     
-    init(interface: CharacterDetailViewControllerDelegate, interactor: CharacterDetailInteractorDelegate?, router: CharacterDetailRouterDelegate?, characterId: Int) {
+    init(interface: CharacterDetailViewControllerProtocol, interactor: CharacterDetailInteractorProtocol?, router: CharacterDetailRouterProtocol?, characterId: Int) {
         self.router = router
         self.interactor = interactor
         self.view = interface

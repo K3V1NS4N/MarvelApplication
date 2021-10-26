@@ -217,7 +217,7 @@ private class MockCharacterListRouterToPresenter {
     var didGoToCharacterDetail = false
 }
 
-extension MockCharacterListRouterToPresenter: CharacterListRouterDelegate {
+extension MockCharacterListRouterToPresenter: CharacterListRouterProtocol {
     func goToCharacterDetail(characterId: Int) {
         didGoToCharacterDetail = true
     }
@@ -232,7 +232,7 @@ private class MockCharacterListInteractorToPresenter {
 
 }
 
-extension MockCharacterListInteractorToPresenter: CharacterListInteractorDelegate {
+extension MockCharacterListInteractorToPresenter: CharacterListInteractorProtocol {
     func getInitialCharacterList(name: String?) {
         didCallGetInitialCharacterList = true
     }
@@ -266,7 +266,7 @@ private class MockCharacterListViewToPresenter {
     
 }
 
-extension MockCharacterListViewToPresenter: CharacterListViewControllerDelegate {
+extension MockCharacterListViewToPresenter: CharacterListViewControllerProtocol {
     func displayInitialCharacterList(characterList: CharacterListViewModel) {
         didDisplayInitialCharacterList = true
     }

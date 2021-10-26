@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol CharacterListPresenterDelegate: AnyObject {
+protocol CharacterListPresenterProtocol: AnyObject {
     func viewDidLoad()
     func getInitialCharacterList()
     func didGetInitialCharacterList(characterList: CharactersListModelResponse)
@@ -18,17 +18,17 @@ protocol CharacterListPresenterDelegate: AnyObject {
     func didPerformedSearch(name: String)
 }
 
-class CharacterListPresenter: CharacterListPresenterDelegate {
+class CharacterListPresenter: CharacterListPresenterProtocol {
 
-    var router: CharacterListRouterDelegate?
-    var interactor: CharacterListInteractorDelegate?
-    weak var view: CharacterListViewControllerDelegate?
+    var router: CharacterListRouterProtocol?
+    var interactor: CharacterListInteractorProtocol?
+    weak var view: CharacterListViewControllerProtocol?
     
     private var loadingMoreCharacters = false
     private var offset = 0
     private var name: String?
     
-    init(interface: CharacterListViewControllerDelegate, interactor: CharacterListInteractorDelegate?, router: CharacterListRouterDelegate?) {
+    init(interface: CharacterListViewControllerProtocol, interactor: CharacterListInteractorProtocol?, router: CharacterListRouterProtocol?) {
         self.router = router
         self.interactor = interactor
         self.view = interface
@@ -134,3 +134,7 @@ class CharacterListPresenter: CharacterListPresenterDelegate {
         self.interactor?.getInitialCharacterList(name: name)
     }
 }
+
+
+
+//EXTENSION

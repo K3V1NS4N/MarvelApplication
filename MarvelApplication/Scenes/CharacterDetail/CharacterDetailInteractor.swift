@@ -7,13 +7,13 @@
 
 import UIKit
 
-protocol CharacterDetailInteractorDelegate: AnyObject {
+protocol CharacterDetailInteractorProtocol: AnyObject {
     func getCharacterDetail(characterId: Int)
 }
 
-class CharacterDetailInteractor: CharacterDetailInteractorDelegate, ReachabilityInteractor {
+class CharacterDetailInteractor: CharacterDetailInteractorProtocol, ReachabilityInteractor {
 
-    weak var presenter: CharacterDetailPresenterDelegate?
+    weak var presenter: CharacterDetailPresenterProtocol?
     
     var apiClient: APIClientProtocol
     

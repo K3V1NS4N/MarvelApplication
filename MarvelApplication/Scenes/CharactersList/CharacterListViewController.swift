@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol CharacterListViewControllerDelegate: AnyObject {
+protocol CharacterListViewControllerProtocol: AnyObject {
     func displayInitialCharacterList(characterList: CharacterListViewModel)
     func displayNextCharacterList(characterList: CharacterListViewModel)
     func showMessage(title: String, description: String, icon: UIImage)
@@ -15,14 +15,14 @@ protocol CharacterListViewControllerDelegate: AnyObject {
     func displayFooterLoader()
 }
 
-class CharacterListViewController: UIViewController, CharacterListViewControllerDelegate {
+class CharacterListViewController: UIViewController, CharacterListViewControllerProtocol {
   
     // MARK: @IBOutlets
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: Variables
-    var presenter: CharacterListPresenterDelegate?
+    var presenter: CharacterListPresenterProtocol?
     private let cellId = "cellId"
     private let headerId = "headerId"
     private let footerId = "footerId"

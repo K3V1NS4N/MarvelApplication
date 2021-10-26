@@ -8,12 +8,12 @@
 import UIKit
 import AlamofireImage
 
-protocol CharacterDetailViewControllerDelegate: AnyObject {
+protocol CharacterDetailViewControllerProtocol: AnyObject {
     func displayCharacter(model: CharacterDetailViewModel)
     func showError(title: String, description: String, icon: UIImage)
 }
 
-class CharacterDetailViewController: UIViewController, CharacterDetailViewControllerDelegate {
+class CharacterDetailViewController: UIViewController, CharacterDetailViewControllerProtocol {
     
     // MARK: @IBOutletsvar
     @IBOutlet weak var imageContainerView: UIView!
@@ -23,7 +23,7 @@ class CharacterDetailViewController: UIViewController, CharacterDetailViewContro
     @IBOutlet weak var characterDescription: UILabel!
     
     // MARK: Variables
-    var presenter: CharacterDetailPresenterDelegate?
+    var presenter: CharacterDetailPresenterProtocol?
     
     // MARK: Life cycle functions
     override func viewDidLoad() {
