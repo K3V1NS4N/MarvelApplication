@@ -8,12 +8,6 @@
 import Foundation
 import Alamofire
 
-// Not used yet
-enum APIError {
-    case charactersList
-    case characterDetail
-}
-
 enum API: URLRequestConvertible {
 
     static var timeStamp: String?
