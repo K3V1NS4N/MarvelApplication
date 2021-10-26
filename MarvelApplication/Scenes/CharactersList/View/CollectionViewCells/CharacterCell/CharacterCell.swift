@@ -26,10 +26,10 @@ public class CharacterCell: UICollectionViewCell {
         super.init(coder: coder)
     }
     
-    public func configure(model: CharactersListModel.Hero) {
-        let ext = model.thumbnail?.extension ?? .jpg
+    public func configure(model: CharacterCellModel) {
+        let ext = model.imageExt ?? .jpg
         configureName(name: model.name ?? "")
-        configureImage(imagePath: model.thumbnail?.path,
+        configureImage(imagePath: model.imagePath,
                        ext: ext.rawValue)
         configureViews()
     }

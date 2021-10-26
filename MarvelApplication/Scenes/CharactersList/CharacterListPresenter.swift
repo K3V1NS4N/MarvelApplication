@@ -13,7 +13,7 @@ protocol CharacterListPresenterDelegate: AnyObject {
     func didGetInitialCharacterList(characterList: CharactersListModelResponse)
     func didGetNextCharacterList(characterList: CharactersListModelResponse)
     func didGetCharacterListError(error: CharacterListError)
-    func didTapOnCharacter(character: CharactersListModel.Hero)
+    func didTapOnCharacter(characterID: Int?)
     func scrollViewDidReachEnd()
     func didPerformedSearch(name: String)
 }
@@ -58,7 +58,8 @@ class CharacterListPresenter: CharacterListPresenterDelegate {
                                    icon: .infoIcon)
             return
         }
-        let viewModel = CharacterListViewModel(characterList: characters)
+                
+        let viewModel = retrieveCharacterCells(characters: characters)
         self.view?.displayInitialCharacterList(characterList: viewModel)
         loadingMoreCharacters = false
     }
@@ -74,13 +75,13 @@ class CharacterListPresenter: CharacterListPresenterDelegate {
             return
         }
         
-        let viewModel = CharacterListViewModel(characterList: characters)
+        let viewModel = retrieveCharacterCells(characters: characters)
         self.view?.displayNextCharacterList(characterList: viewModel)
         self.loadingMoreCharacters = false
     }
     
-    func didTapOnCharacter(character: CharactersListModel.Hero) {
-        guard let id = character.id else { return }
+    func didTapOnCharacter(characterID: Int?) {
+        guard let id = characterID else { return }
         self.router?.goToCharacterDetail(characterId: id)
     }
     
@@ -101,6 +102,17 @@ class CharacterListPresenter: CharacterListPresenterDelegate {
             resetPaginationFailed()
             return
         }
+    }
+    
+    private func retrieveCharacterCells(characters: [CharactersListModel.Hero]) -> CharacterListViewModel {
+        
+        var listOfCells: [CharacterCellModel] = []
+        for character in characters {
+            if let characterId = character.id, let name = character.name {
+                listOfCells.append(CharacterCellModel(id: characterId, name: name, imagePath: character.thumbnail?.path, imageExt: ImageExt(rawValue: character.thumbnail?.extension?.rawValue ?? "")))
+            }
+        }
+        return CharacterListViewModel(characterList: listOfCells)
     }
     
     private func resetPaginationFailed() {

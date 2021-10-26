@@ -6,10 +6,20 @@
 //
 
 public struct CharacterDetailViewModel {
-
-    var character: CharactersListModel.Hero?
     
-    init(character: CharactersListModel.Hero) {
-        self.character = character
+    let id: Int?
+    let name: String?
+    let description: String?
+    var imagePath: String?
+    let imageExt: ImageExt?
+    
+    
+    internal init(id: Int, name: String, description: String, imagePath: String, imageExt: ImageExt) {
+        self.id = id
+        self.name = name
+        self.description = description
+        self.imagePath = imagePath
+        self.imageExt = imageExt
     }
+    
 }

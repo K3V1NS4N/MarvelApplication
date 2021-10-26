@@ -47,41 +47,6 @@ extension UIView {
 
         self.addSubview(effectView)
     }
-
-    func startShimmeringAnimation(animationSpeed: Float = 2,
-                                  repeatCount: Float = MAXFLOAT) {
-      
-      let lightColor = UIColor(displayP3Red: 1.0, green: 1.0, blue: 1.0, alpha: 0.1).cgColor
-      let blackColor = UIColor.black.cgColor
-      
-      let gradientLayer = CAGradientLayer()
-      gradientLayer.colors = [blackColor, lightColor, blackColor]
-      gradientLayer.frame = CGRect(x: -self.bounds.size.width, y: -self.bounds.size.height, width: 3 * self.bounds.size.width, height: 3 * self.bounds.size.height)
-      
-      gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.6)
-      gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
-      
-      gradientLayer.locations =  [-1.0, -0.7, -0.5, -0.3, 0.0]
-      self.layer.mask = gradientLayer
-      
-      CATransaction.begin()
-      let animation = CABasicAnimation(keyPath: "locations")
-      animation.fromValue = [-1.0, -0.7, -0.5, -0.3, 0.0]
-      animation.toValue = [1, 1.3, 1.5, 1.7, 2]
-      animation.duration = CFTimeInterval(animationSpeed)
-      animation.repeatCount = repeatCount
-      CATransaction.setCompletionBlock { [weak self] in
-        guard let strongSelf = self else { return }
-        strongSelf.layer.mask = nil
-      }
-      gradientLayer.add(animation, forKey: "shimmerAnimation")
-      CATransaction.commit()
-    }
-      
-      func stopShimmeringAnimation() {
-          self.backgroundColor = .clear
-          self.layer.mask = nil
-      }
     
     // MARK: Programmatically constraints
     func pinLeading(toLeadingOf view: UIView, constant: CGFloat) {

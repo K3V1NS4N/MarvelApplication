@@ -7,11 +7,11 @@
 
 import Foundation
 
-public struct CharacterListViewModel {
+struct CharacterListViewModel {
 
-    var characterList: [CharactersListModel.Hero] = []
+    var characterList: [CharacterCellModel] = []
     
-    init(characterList: [CharactersListModel.Hero]) {
+    init(characterList: [CharacterCellModel]) {
         self.characterList = characterList
     }
 }

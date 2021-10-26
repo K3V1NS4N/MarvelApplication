@@ -121,17 +121,16 @@ class CharacterListPresenterTests: XCTestCase {
     
     func testDidTapOnCharacter() {
         // Given
-        let model = CharacterListModelTest().characterCase()
+        let characterID = 65434
         // When
-        sut.didTapOnCharacter(character: model)
+        sut.didTapOnCharacter(characterID: characterID)
         // Then
         XCTAssertTrue(routerMock.didGoToCharacterDetail)
     }
     func testDidTapOnCharacterNullId() {
         // Given
-        let model = CharacterListModelTest().characterNilIdCase()
         // When
-        sut.didTapOnCharacter(character: model)
+        sut.didTapOnCharacter(characterID: nil)
         // Then
         XCTAssertFalse(routerMock.didGoToCharacterDetail)
     }

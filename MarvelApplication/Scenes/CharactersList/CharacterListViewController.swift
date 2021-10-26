@@ -164,7 +164,7 @@ extension CharacterListViewController: UICollectionViewDelegate, UICollectionVie
         guard let character = viewModel?.characterList[indexPath.row] else {
             return
         }
-        self.presenter?.didTapOnCharacter(character: character)
+        self.presenter?.didTapOnCharacter(characterID: character.id)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

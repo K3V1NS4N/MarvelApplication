@@ -96,6 +96,12 @@
 		6B47E1D92721733A009C2500 /* GenericApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B47E1D72721733A009C2500 /* GenericApiError.swift */; };
 		6B47E1DC2721797E009C2500 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6B47E1DB2721797E009C2500 /* Localizable.strings */; };
 		6B47E1DD2721797E009C2500 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6B47E1DB2721797E009C2500 /* Localizable.strings */; };
+		6B5DC2732727CF5100BB0790 /* CharacterCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5DC2722727CF5100BB0790 /* CharacterCellModel.swift */; };
+		6B5DC2742727CF5100BB0790 /* CharacterCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5DC2722727CF5100BB0790 /* CharacterCellModel.swift */; };
+		6B5DC2762727CFAE00BB0790 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5DC2752727CFAE00BB0790 /* ImageExtension.swift */; };
+		6B5DC2772727CFAE00BB0790 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5DC2752727CFAE00BB0790 /* ImageExtension.swift */; };
+		6B5DC2782727D3B400BB0790 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5DC2752727CFAE00BB0790 /* ImageExtension.swift */; };
+		6B5DC2792727D3E600BB0790 /* CharacterCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5DC2722727CF5100BB0790 /* CharacterCellModel.swift */; };
 		6B7D6BBE2726F10900D48844 /* Identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC082302726EF1F00243B59 /* Identifiers.swift */; };
 		6B7D6BC02726F22500D48844 /* MarvelApplicationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B7D6BB52726F0F800D48844 /* MarvelApplicationUITests.swift */; };
 		6B7D6BC12726F24F00D48844 /* UITestBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC082212726E9CB00243B59 /* UITestBase.swift */; };
@@ -216,6 +222,8 @@
 		6B47E1D227217240009C2500 /* ConnectionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionError.swift; sourceTree = "<group>"; };
 		6B47E1D72721733A009C2500 /* GenericApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericApiError.swift; sourceTree = "<group>"; };
 		6B47E1DB2721797E009C2500 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		6B5DC2722727CF5100BB0790 /* CharacterCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCellModel.swift; sourceTree = "<group>"; };
+		6B5DC2752727CFAE00BB0790 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
 		6B7D6BB32726F0F800D48844 /* MarvelApplicationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelApplicationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B7D6BB52726F0F800D48844 /* MarvelApplicationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelApplicationUITests.swift; sourceTree = "<group>"; };
 		6B7D6BCA2726F69500D48844 /* MarvelApplicationMock.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MarvelApplicationMock.plist; sourceTree = "<group>"; };
@@ -543,6 +551,7 @@
 			isa = PBXGroup;
 			children = (
 				6B300D4E27209FEF007D5EA1 /* GenericError.swift */,
+				6B5DC2752727CFAE00BB0790 /* ImageExtension.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -616,6 +625,14 @@
 				6B47E1B427212A88009C2500 /* CharactersListModel.swift */,
 			);
 			path = CharacterList;
+			sourceTree = "<group>";
+		};
+		6B5DC2712727CF4200BB0790 /* CharacterCellModel */ = {
+			isa = PBXGroup;
+			children = (
+				6B5DC2722727CF5100BB0790 /* CharacterCellModel.swift */,
+			);
+			path = CharacterCellModel;
 			sourceTree = "<group>";
 		};
 		6B7D6BB42726F0F800D48844 /* MarvelApplicationUITests */ = {
@@ -744,6 +761,7 @@
 		E533DFB62724275E00F013C1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6B5DC2712727CF4200BB0790 /* CharacterCellModel */,
 				6B2827732725A3BB0050C633 /* ViewModel */,
 				6B2827742725A3C20050C633 /* ErrorModel */,
 			);
@@ -1073,6 +1091,7 @@
 				6B47E1C627215E6B009C2500 /* UIView+Extension.swift in Sources */,
 				6B034E9E27206D4F000DE72E /* CharacterListPresenter.swift in Sources */,
 				6B2827702725668B0050C633 /* CharacterFooterCell.swift in Sources */,
+				6B5DC2762727CFAE00BB0790 /* ImageExtension.swift in Sources */,
 				6B300D4827209F19007D5EA1 /* APIClient.swift in Sources */,
 				6B28279B2725E1210050C633 /* UIImage+Extension.swift in Sources */,
 				6B47E1D327217240009C2500 /* ConnectionError.swift in Sources */,
@@ -1095,6 +1114,7 @@
 				6B300D0127208BFC007D5EA1 /* CharacterDetailRouter.swift in Sources */,
 				6B300D0227208BFC007D5EA1 /* CharacterDetailViewController.swift in Sources */,
 				6B034E6E27206B41000DE72E /* MarvelApplication.xcdatamodeld in Sources */,
+				6B5DC2732727CF5100BB0790 /* CharacterCellModel.swift in Sources */,
 				6B300D31272090E8007D5EA1 /* Environment.swift in Sources */,
 				6B034E6427206B41000DE72E /* AppDelegate.swift in Sources */,
 				6B47E1B527212A88009C2500 /* CharactersListModel.swift in Sources */,
@@ -1113,6 +1133,7 @@
 				6BEB671727268018006C9B1C /* CharacterFooterCell.swift in Sources */,
 				6B300D1427208C49007D5EA1 /* CharacterListInteractor.swift in Sources */,
 				6BEB671C27268043006C9B1C /* CharacterListError.swift in Sources */,
+				6B5DC2782727D3B400BB0790 /* ImageExtension.swift in Sources */,
 				6BEB671927268025006C9B1C /* Log.swift in Sources */,
 				6B300D1A27208C50007D5EA1 /* CharacterDetailPresenter.swift in Sources */,
 				6BEB671D27268051006C9B1C /* MessageView.swift in Sources */,
@@ -1130,6 +1151,7 @@
 				6BEB671B27268036006C9B1C /* UIView+Extension.swift in Sources */,
 				6BEB671E2726805A006C9B1C /* CharacterCell.swift in Sources */,
 				6B300D3B27209479007D5EA1 /* APIClientProtocol.swift in Sources */,
+				6B5DC2792727D3E600BB0790 /* CharacterCellModel.swift in Sources */,
 				6B300D1227208C46007D5EA1 /* CharacterListPresenter.swift in Sources */,
 				6B300D4A27209F19007D5EA1 /* APIClient.swift in Sources */,
 				E533DFC4272428EB00F013C1 /* String+Extension.swift in Sources */,
@@ -1154,6 +1176,7 @@
 				6B47E1CB2721647B009C2500 /* ShadowView.swift in Sources */,
 				6B034EA8272088AE000DE72E /* CharacterListInteractor.swift in Sources */,
 				E533DFBC2724285300F013C1 /* CharactersListModel.swift in Sources */,
+				6B5DC2772727CFAE00BB0790 /* ImageExtension.swift in Sources */,
 				6B300D3A27209479007D5EA1 /* APIClientProtocol.swift in Sources */,
 				6B2827A12725E43B0050C633 /* UIImage+Extension.swift in Sources */,
 				6B300D2D272090D3007D5EA1 /* Environment.swift in Sources */,
@@ -1176,6 +1199,7 @@
 				E533DFB92724283800F013C1 /* CharacterListViewModel.swift in Sources */,
 				6B47E1D427217240009C2500 /* ConnectionError.swift in Sources */,
 				E533DFC02724286C00F013C1 /* EnvProtocol.swift in Sources */,
+				6B5DC2742727CF5100BB0790 /* CharacterCellModel.swift in Sources */,
 				6B300D3F272094E1007D5EA1 /* API.swift in Sources */,
 				6B300D0627208C2B007D5EA1 /* CharacterDetailViewController.swift in Sources */,
 				6B47E1C727215E6B009C2500 /* UIView+Extension.swift in Sources */,

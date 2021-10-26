@@ -46,13 +46,19 @@ class CharacterDetailPresenter: CharacterDetailPresenterDelegate {
     
     func didGetCharacterDetail(characterDetail: CharactersListModelResponse) {
         guard let character = characterDetail?.data?.results?.first else {
-            self.view?.showError(title: CharacterDetailError.genericError(.genericServerError).title, description: CharacterDetailError.genericError(.genericServerError).description, icon: .serverErrorIcon)
+            displayError() 
             return
         }
         
-        let model = CharacterDetailViewModel(character: character)
-        
-        self.view?.displayCharacter(model: model)
+        if let characterId = character.id, let name = character.name, let description = character.description, let imagePath = character.thumbnail?.path, let imageExt = character.thumbnail?.extension {
+            
+            let model = CharacterDetailViewModel(id: characterId, name: name, description: description, imagePath: imagePath, imageExt: ImageExt(rawValue: imageExt.rawValue) ?? .jpg)
+            
+            self.view?.displayCharacter(model: model)
+        } else {
+            displayError()
+        }
+         
     }
     
     func didGetCharacterDetailError(error: CharacterDetailError) {
@@ -64,6 +70,11 @@ class CharacterDetailPresenter: CharacterDetailPresenterDelegate {
             self.view?.showError(title: error.title, description: error.description, icon: .serverErrorIcon)
             return
         }
+    }
+    
+    private func displayError() {
+        
+        self.view?.showError(title: CharacterDetailError.genericError(.genericServerError).title, description: CharacterDetailError.genericError(.genericServerError).description, icon: .serverErrorIcon)
     }
 
 }
