@@ -22,7 +22,7 @@ class CharacterListViewController: UIViewController, CharacterListViewController
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: Variables
-    var presenter: CharacterListPresenterProtocol?
+    var presenter: CharacterListViewPresenterProtocol?
     private let cellId = "cellId"
     private let headerId = "headerId"
     private let footerId = "footerId"

@@ -12,7 +12,8 @@ protocol CharacterListRouterProtocol: AnyObject {
 
 class CharacterListRouter: CharacterListRouterProtocol {
 
-    weak var presenter: CharacterListPresenterProtocol?
+    weak var interactorToPresenter: CharacterListInteractorPresenterProtocol?
+    weak var viewToPresenter: CharacterListViewPresenterProtocol?
     weak var viewController: CharacterListViewController?
     
     static func createModule() -> CharacterListViewController? {

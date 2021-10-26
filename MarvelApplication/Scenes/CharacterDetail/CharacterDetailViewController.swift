@@ -23,7 +23,7 @@ class CharacterDetailViewController: UIViewController, CharacterDetailViewContro
     @IBOutlet weak var characterDescription: UILabel!
     
     // MARK: Variables
-    var presenter: CharacterDetailPresenterProtocol?
+    var presenter: CharacterDetailViewPresenterProtocol?
     
     // MARK: Life cycle functions
     override func viewDidLoad() {

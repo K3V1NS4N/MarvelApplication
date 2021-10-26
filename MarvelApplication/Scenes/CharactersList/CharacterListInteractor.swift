@@ -14,7 +14,7 @@ protocol CharacterListInteractorProtocol: AnyObject {
 
 class CharacterListInteractor: CharacterListInteractorProtocol, ReachabilityInteractor {
  
-    weak var presenter: CharacterListPresenterProtocol?
+    weak var presenter: CharacterListInteractorPresenterProtocol?
     var apiClient: APIClientProtocol
     
     init(apiClient: APIClientProtocol) {

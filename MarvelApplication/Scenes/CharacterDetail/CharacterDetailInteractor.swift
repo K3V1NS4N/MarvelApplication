@@ -13,7 +13,7 @@ protocol CharacterDetailInteractorProtocol: AnyObject {
 
 class CharacterDetailInteractor: CharacterDetailInteractorProtocol, ReachabilityInteractor {
 
-    weak var presenter: CharacterDetailPresenterProtocol?
+    weak var presenter: CharacterDetailInteractorPresenterProtocol?
     
     var apiClient: APIClientProtocol
     

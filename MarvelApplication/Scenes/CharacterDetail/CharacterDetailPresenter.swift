@@ -7,15 +7,17 @@
 
 import UIKit
 
-protocol CharacterDetailPresenterProtocol: AnyObject {
+protocol CharacterDetailViewPresenterProtocol: AnyObject {
     func viewDidLoad()
     func getCharacterDetail()
-    func didGetCharacterDetail(characterDetail: CharactersListModelResponse)
-    func didGetCharacterDetailError(error: CharacterDetailError)
-
 }
 
-class CharacterDetailPresenter: CharacterDetailPresenterProtocol {
+protocol CharacterDetailInteractorPresenterProtocol: AnyObject {
+    func didGetCharacterDetail(characterDetail: CharactersListModelResponse)
+    func didGetCharacterDetailError(error: CharacterDetailError)
+}
+
+class CharacterDetailPresenter  {
  
     var router: CharacterDetailRouterProtocol?
     var interactor: CharacterDetailInteractorProtocol?
@@ -30,6 +32,14 @@ class CharacterDetailPresenter: CharacterDetailPresenterProtocol {
         self.characterId = characterId
     }
     
+    private func displayError() {
+        
+        self.view?.showError(title: CharacterDetailError.genericError(.genericServerError).title, description: CharacterDetailError.genericError(.genericServerError).description, icon: .serverErrorIcon)
+    }
+
+}
+
+extension CharacterDetailPresenter: CharacterDetailViewPresenterProtocol {
     func viewDidLoad() {
         getCharacterDetail()
     }
@@ -43,10 +53,12 @@ class CharacterDetailPresenter: CharacterDetailPresenterProtocol {
         self.interactor?.getCharacterDetail(characterId: id)
         
     }
-    
+}
+
+extension CharacterDetailPresenter: CharacterDetailInteractorPresenterProtocol {
     func didGetCharacterDetail(characterDetail: CharactersListModelResponse) {
         guard let character = characterDetail?.data?.results?.first else {
-            displayError() 
+            displayError()
             return
         }
         
@@ -71,10 +83,4 @@ class CharacterDetailPresenter: CharacterDetailPresenterProtocol {
             return
         }
     }
-    
-    private func displayError() {
-        
-        self.view?.showError(title: CharacterDetailError.genericError(.genericServerError).title, description: CharacterDetailError.genericError(.genericServerError).description, icon: .serverErrorIcon)
-    }
-
 }

@@ -7,18 +7,21 @@
 
 import UIKit
 
-protocol CharacterListPresenterProtocol: AnyObject {
+protocol CharacterListViewPresenterProtocol: AnyObject {
     func viewDidLoad()
     func getInitialCharacterList()
-    func didGetInitialCharacterList(characterList: CharactersListModelResponse)
-    func didGetNextCharacterList(characterList: CharactersListModelResponse)
-    func didGetCharacterListError(error: CharacterListError)
     func didTapOnCharacter(characterID: Int?)
     func scrollViewDidReachEnd()
     func didPerformedSearch(name: String)
 }
 
-class CharacterListPresenter: CharacterListPresenterProtocol {
+protocol CharacterListInteractorPresenterProtocol: AnyObject {
+    func didGetInitialCharacterList(characterList: CharactersListModelResponse)
+    func didGetNextCharacterList(characterList: CharactersListModelResponse)
+    func didGetCharacterListError(error: CharacterListError)
+}
+
+class CharacterListPresenter {
 
     var router: CharacterListRouterProtocol?
     var interactor: CharacterListInteractorProtocol?
@@ -34,6 +37,25 @@ class CharacterListPresenter: CharacterListPresenterProtocol {
         self.view = interface
     }
     
+    private func retrieveCharacterCells(characters: [CharactersListModel.Hero]) -> CharacterListViewModel {
+        
+        var listOfCells: [CharacterCellModel] = []
+        for character in characters {
+            if let characterId = character.id, let name = character.name {
+                listOfCells.append(CharacterCellModel(id: characterId, name: name, imagePath: character.thumbnail?.path, imageExt: ImageExt(rawValue: character.thumbnail?.extension?.rawValue ?? "")))
+            }
+        }
+        return CharacterListViewModel(characterList: listOfCells)
+    }
+    
+    private func resetPaginationFailed() {
+        loadingMoreCharacters = false
+        offset -= 20
+    }
+}
+
+// MARK: Protocol from ViewController to Presenter
+extension CharacterListPresenter: CharacterListViewPresenterProtocol {
     func viewDidLoad() {
         getInitialCharacterList()
     }
@@ -44,6 +66,30 @@ class CharacterListPresenter: CharacterListPresenterProtocol {
         offset = 0
         self.interactor?.getInitialCharacterList(name: nil)
     }
+    
+    func didTapOnCharacter(characterID: Int?) {
+        guard let id = characterID else { return }
+        self.router?.goToCharacterDetail(characterId: id)
+    }
+    
+    func scrollViewDidReachEnd() {
+        if !loadingMoreCharacters {
+            self.view?.displayFooterLoader()
+            offset += 20
+            self.loadingMoreCharacters = true
+            self.interactor?.getNextCharacters(offset: offset, name: name)
+        }
+    }
+    
+    func didPerformedSearch(name: String) {
+        self.name = name
+        self.interactor?.getInitialCharacterList(name: name)
+    }
+    
+}
+
+// MARK: Protocol from Interactor to Presenter
+extension CharacterListPresenter: CharacterListInteractorPresenterProtocol {
     
     func didGetInitialCharacterList(characterList: CharactersListModelResponse) {
         guard let characters = characterList?.data?.results else {
@@ -80,11 +126,6 @@ class CharacterListPresenter: CharacterListPresenterProtocol {
         self.loadingMoreCharacters = false
     }
     
-    func didTapOnCharacter(characterID: Int?) {
-        guard let id = characterID else { return }
-        self.router?.goToCharacterDetail(characterId: id)
-    }
-    
     func didGetCharacterListError(error: CharacterListError) {
         switch error {
         case .connection:
@@ -103,38 +144,4 @@ class CharacterListPresenter: CharacterListPresenterProtocol {
             return
         }
     }
-    
-    private func retrieveCharacterCells(characters: [CharactersListModel.Hero]) -> CharacterListViewModel {
-        
-        var listOfCells: [CharacterCellModel] = []
-        for character in characters {
-            if let characterId = character.id, let name = character.name {
-                listOfCells.append(CharacterCellModel(id: characterId, name: name, imagePath: character.thumbnail?.path, imageExt: ImageExt(rawValue: character.thumbnail?.extension?.rawValue ?? "")))
-            }
-        }
-        return CharacterListViewModel(characterList: listOfCells)
-    }
-    
-    private func resetPaginationFailed() {
-        loadingMoreCharacters = false
-        offset -= 20
-    }
-    
-    func scrollViewDidReachEnd() {
-        if !loadingMoreCharacters {
-            self.view?.displayFooterLoader()
-            offset += 20
-            self.loadingMoreCharacters = true
-            self.interactor?.getNextCharacters(offset: offset, name: name)
-        }
-    }
-    
-    func didPerformedSearch(name: String) {
-        self.name = name
-        self.interactor?.getInitialCharacterList(name: name)
-    }
 }
-
-
-
-//EXTENSION

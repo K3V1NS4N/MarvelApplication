@@ -12,7 +12,8 @@ protocol CharacterDetailRouterProtocol: AnyObject {
 
 class CharacterDetailRouter: CharacterDetailRouterProtocol {
     
-    weak var presenter: CharacterDetailPresenterProtocol?
+    weak var interactorToPresenter: CharacterDetailInteractorPresenterProtocol?
+    weak var viewToPresenter: CharacterDetailViewPresenterProtocol?
     weak var viewController: CharacterDetailViewController?
     
     static func createModule(characterId: Int) -> CharacterDetailViewController? {
