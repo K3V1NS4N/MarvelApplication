@@ -4,13 +4,6 @@
    <FileRef
       location = "group:MarvelApplication.xcodeproj">
    </FileRef>
-   <Group
-      location = "group:MarvelApplication/../MarvelApplication.xcdatamodeld"
-      name = "MarvelApplication.xcdatamodeld">
-      <FileRef
-         location = "group:MarvelApplication.xcdatamodeld/MarvelApplication.xcdatamodel">
-      </FileRef>
-   </Group>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
