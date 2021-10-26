@@ -9,7 +9,7 @@ The Marvel app is an iOS app that uses the official Marvel API to search through
 Install Xcode [developer tools](https://developer.apple.com/xcode/downloads/) from Apple.
 Clone the repository:
 ```sh
-git clone 
+git clone https://github.com/K3V1NS4N/MarvelApplication.git
 ```
 Then access to the root cloned folder through your terminal and install the pod dependencies:
 ```sh
