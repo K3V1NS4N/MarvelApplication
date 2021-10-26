@@ -2,6 +2,7 @@
 The Marvel app is an iOS app that uses the official Marvel API to search through all Marvel characters, and also provides access to the details of each one.
 
 # Requirements
+- CocoaPods 1.11.2
 - Xcode 11 or above
 - iOS 12.0 +
 - Swift 5
