@@ -13,7 +13,7 @@ DEPENDENCIES:
   - CryptoSwift
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - Alamofire
     - AlamofireImage
     - CodableAlamofire
@@ -25,6 +25,6 @@ SPEC CHECKSUMS:
   CodableAlamofire: 3532ececac18593b300d775f2a51feca2f83a2f1
   CryptoSwift: a532e74ed010f8c95f611d00b8bbae42e9fe7c17
 
-PODFILE CHECKSUM: 8d4e1ff301f8720f1b95a5bffbb65d4816ff3248
+PODFILE CHECKSUM: 46917f2a8e1211a58db043c680b602b398a444e0
 
 COCOAPODS: 1.11.2
