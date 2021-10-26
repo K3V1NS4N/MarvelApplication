@@ -43,8 +43,7 @@ final class APIClient: APIClientProtocol {
                     print(String(decoding: (httpBody), as: UTF8.self))
                 Log.d(String(decoding: (httpBody), as: UTF8.self))
             }
-
-            print("response: \(String(describing: response.response))")
+            
             Log.d("response: \(String(describing: response.response))")
             
             guard let resp = response.response,
