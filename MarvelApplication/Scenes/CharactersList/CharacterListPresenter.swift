@@ -42,7 +42,7 @@ class CharacterListPresenter {
         var listOfCells: [CharacterCellModel] = []
         for character in characters {
             if let characterId = character.id, let name = character.name {
-                listOfCells.append(CharacterCellModel(id: characterId, name: name, imagePath: character.thumbnail?.path, imageExt: ImageExt(rawValue: character.thumbnail?.extension?.rawValue ?? "")))
+                listOfCells.append(CharacterCellModel(id: characterId, name: name, imagePath: character.thumbnail?.path ?? "", imageExt: ImageExt(rawValue: character.thumbnail?.extension?.rawValue ?? "") ?? .jpg))
             }
         }
         return CharacterListViewModel(characterList: listOfCells)

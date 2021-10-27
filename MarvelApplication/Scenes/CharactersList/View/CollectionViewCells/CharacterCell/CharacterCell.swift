@@ -27,8 +27,8 @@ public class CharacterCell: UICollectionViewCell {
     }
     
     public func configure(model: CharacterCellModel) {
-        let ext = model.imageExt ?? .jpg
-        configureName(name: model.name ?? "")
+        let ext = model.imageExt
+        configureName(name: model.name)
         configureImage(imagePath: model.imagePath,
                        ext: ext.rawValue)
         configureViews()

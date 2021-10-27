@@ -26,16 +26,4 @@ extension UIImage {
         return UIImage.named(name).withRenderingMode(.alwaysOriginal)
     }
     
-    convenience init(view: UIView) {
-        UIGraphicsBeginImageContext(view.frame.size)
-        if let graphicContext = UIGraphicsGetCurrentContext(),
-            let image = UIGraphicsGetImageFromCurrentImageContext(),
-            let cgImage = image.cgImage {
-            view.layer.render(in: graphicContext)
-            self.init(cgImage: cgImage)
-        } else {
-            self.init()
-        }
-    }
-
 }
