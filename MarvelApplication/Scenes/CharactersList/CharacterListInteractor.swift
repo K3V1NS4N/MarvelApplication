@@ -26,14 +26,15 @@ class CharacterListInteractor: CharacterListInteractorProtocol, ReachabilityInte
             self.presenter?.didGetCharacterListError(error: .connection(.notReachable))
             return
         }
-        apiClient.request(from: API.charactersList(offset: 0, name: name)) { (result: Result<CharactersListModelResponse, Error>) in 
+        apiClient.request(from: API.charactersList(offset: 0, name: name)) { [weak self] (result: Result<CharactersListModelResponse, Error>) in
+            guard let self = self else { return }
             switch result {
             case .success(let value):
                 self.presenter?.didGetInitialCharacterList(characterList: value)
             case .failure:
                 self.presenter?.didGetCharacterListError(error: .genericError(.genericServerError))
             }
-
+            
         }
     }
     
@@ -42,7 +43,8 @@ class CharacterListInteractor: CharacterListInteractorProtocol, ReachabilityInte
             self.presenter?.didGetCharacterListError(error: .paginationConnectionError)
             return
         }
-        apiClient.request(from: API.charactersList(offset: offset, name: name)) { (result: Result<CharactersListModelResponse, Error>) in
+        apiClient.request(from: API.charactersList(offset: offset, name: name)) { [weak self] (result: Result<CharactersListModelResponse, Error>) in
+            guard let self = self else { return }
             switch result {
             case .success(let value):
                 self.presenter?.didGetNextCharacterList(characterList: value)

@@ -26,7 +26,8 @@ class CharacterDetailInteractor: CharacterDetailInteractorProtocol, Reachability
             self.presenter?.didGetCharacterDetailError(error: .connection(.notReachable))
             return
         }
-        apiClient.request(from: API.characterDetail(id: characterId)) { (result: Result<CharactersListModelResponse, Error>) in
+        apiClient.request(from: API.characterDetail(id: characterId)) { [weak self] (result: Result<CharactersListModelResponse, Error>) in
+            guard let self = self else { return }
             switch result {
             case .success(let value):
                 self.presenter?.didGetCharacterDetail(characterDetail: value)
