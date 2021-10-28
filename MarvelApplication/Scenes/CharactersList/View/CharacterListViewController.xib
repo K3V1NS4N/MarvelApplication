@@ -31,7 +31,7 @@
                         <inset key="sectionInset" minX="12" minY="0.0" maxX="12" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
-                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="p3X-8D-7Qp">
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="p3X-8D-7Qp">
                     <rect key="frame" x="155.5" y="301.5" width="64" height="64"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="64" id="a7r-oP-QQK"/>

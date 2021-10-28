@@ -62,9 +62,13 @@ extension CharacterDetailPresenter: CharacterDetailInteractorPresenterProtocol {
             return
         }
         
-        if let characterId = character.id, let name = character.name, let description = character.description, let imagePath = character.thumbnail?.path, let imageExt = character.thumbnail?.extension {
+        if let characterId = character.id, let name = character.name {
             
-            let model = CharacterDetailViewModel(id: characterId, name: name, description: description, imagePath: imagePath, imageExt: ImageExt(rawValue: imageExt.rawValue) ?? .jpg)
+            let description = character.description ?? "screen.character.detail.empty.description".localized
+            let imagePath = character.thumbnail?.path ?? ""
+            let imageExt = character.thumbnail?.extension?.rawValue ?? ""
+            
+            let model = CharacterDetailViewModel(id: characterId, name: name, description: description, imagePath: imagePath, imageExt: imageExt)
             
             self.view?.displayCharacter(model: model)
         } else {

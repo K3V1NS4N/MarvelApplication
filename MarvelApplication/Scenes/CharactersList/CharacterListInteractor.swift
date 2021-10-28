@@ -26,7 +26,7 @@ class CharacterListInteractor: CharacterListInteractorProtocol, ReachabilityInte
             self.presenter?.didGetCharacterListError(error: .connection(.notReachable))
             return
         }
-        apiClient.request(from: API.charactersList(offset: 0, name: name)) { (result: Result<CharactersListModelResponse, Error>) in
+        apiClient.request(from: API.charactersList(offset: 0, name: name)) { (result: Result<CharactersListModelResponse, Error>) in 
             switch result {
             case .success(let value):
                 self.presenter?.didGetInitialCharacterList(characterList: value)

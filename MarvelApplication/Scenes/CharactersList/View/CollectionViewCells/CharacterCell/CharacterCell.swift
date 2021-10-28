@@ -30,10 +30,20 @@ public class CharacterCell: UICollectionViewCell {
         let ext = model.imageExt
         configureName(name: model.name)
         configureImage(imagePath: model.imagePath,
-                       ext: ext.rawValue)
+                       ext: ext)
         configureViews()
+        configureLoader()
     }
-        
+    
+    private func configureLoader() {
+        self.loader.color = UIColor.darkGray
+        if #available(iOS 13.0, *) {
+            self.loader.style = .large
+        } else {
+            self.loader.style = .whiteLarge
+        }
+    }
+    
     private func configureImage(icon: UIImage) {
         self.characterImageView.image = icon
     }
@@ -50,9 +60,9 @@ public class CharacterCell: UICollectionViewCell {
         
     }
     
-    private func configureImage(imagePath: String?, ext: String) {
-        let pathWithExtension = imagePath?.addExtension(ext: ext)
-        let securizedPath = pathWithExtension?.securizePath()
+    private func configureImage(imagePath: String, ext: String) {
+        let pathWithExtension = imagePath.addExtension(ext: ext)
+        let securizedPath = pathWithExtension.securizePath()
         guard let securizedPath = securizedPath else {
             self.characterImageView.image = .notFoundIcon
             return

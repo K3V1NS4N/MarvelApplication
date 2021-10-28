@@ -22,14 +22,6 @@ extension UITestBase {
         CharacterListScreen.secondCell.tap()
     }
     
-    func whenTapFilterIcon() {
-        
-    }
-    
-    func whenTapOnCancelActionSheetButton() {
-        
-    }
-    
     func whenScrollDownOnCharacters() {
         CharacterListScreen.characters.swipeUp()
     }
@@ -43,10 +35,6 @@ extension UITestBase {
     
     func thenCollectionViewDisplayed() {
         XCTAssertTrue(CharacterListScreen.characters.waitForExistence(timeout: Constants.waitForViewControllerAppear))
-    }
-    
-    func thenFilterOptionsDisplayed() {
-        
     }
     
     func thenAbsorbingManCellNumber25Displayed() {

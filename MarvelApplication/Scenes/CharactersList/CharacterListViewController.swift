@@ -139,10 +139,7 @@ class CharacterListViewController: UIViewController, CharacterListViewController
 // MARK: UICollectionViewDelegate
 extension CharacterListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let numOfCharacters = viewModel?.characterList.count else {
-            return 0
-        }
-        return numOfCharacters
+        return viewModel?.characterList.count ?? 0
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

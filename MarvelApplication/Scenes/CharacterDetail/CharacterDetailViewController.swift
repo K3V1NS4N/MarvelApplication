@@ -47,14 +47,14 @@ class CharacterDetailViewController: UIViewController, CharacterDetailViewContro
         toggleVisibility(isHidden: false)
         self.backgroundImageView.addBlur()
         
-        let description = model.description ?? "screen.character.detail.empty.description".localized
-        let path = model.imagePath ?? ""
-        let ext = model.imageExt ?? .jpg
+        let description = model.description
+        let path = model.imagePath
+        let ext = model.imageExt
         
         UIView.transition(with: self.view, duration: 0.3, options: .transitionCrossDissolve, animations: {
             self.characterName.text = model.name
             self.configureCharacterDescription(description: description)
-            self.configureImage(imagePath: path, ext: ext.rawValue)
+            self.configureImage(imagePath: path, ext: ext)
         })
     
     }
