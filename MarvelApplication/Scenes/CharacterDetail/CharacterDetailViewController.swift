@@ -38,7 +38,7 @@ class CharacterDetailViewController: UIViewController, CharacterDetailViewContro
     
     func setUpUI() {
         self.imageContainerView.roundCorners(corners: [.allCorners], radius: 6)
-        self.imageContainerView.backgroundColor = .gray.withAlphaComponent(0.25)
+        self.imageContainerView.backgroundColor = UIColor.gray.withAlphaComponent(0.25)
         self.characterImageView.roundCorners(corners: [.allCorners], radius: 5)
     }
     
@@ -71,13 +71,13 @@ class CharacterDetailViewController: UIViewController, CharacterDetailViewContro
         let pathWithExtension = imagePath.addExtension(ext: ext)
         let securizedPath = pathWithExtension.securizePath()
         
-        guard let securizedPath = securizedPath else {
+        guard let securePath = securizedPath else {
             self.characterImageView.image = .notFoundIcon
             return
         }
         
         self.characterImageView.image = nil
-        self.characterImageView.af.setImage(withURL: securizedPath,
+        self.characterImageView.af.setImage(withURL: securePath,
                                             imageTransition: .crossDissolve(0.25),
                                             completion: { response in
             self.handleImageResponse(image: response.value)

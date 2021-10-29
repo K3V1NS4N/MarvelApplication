@@ -23,6 +23,6 @@ class Log {
     
     private class func sourceFileName(filePath: String) -> String {
         let components = filePath.components(separatedBy: "/")
-        return components.isEmpty ? "" : (components.last ?? "")
+            return components.isEmpty ? "" : (components.last ?? "")
     }
 }

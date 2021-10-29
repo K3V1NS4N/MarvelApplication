@@ -63,14 +63,14 @@ public class CharacterCell: UICollectionViewCell {
     private func configureImage(imagePath: String, ext: String) {
         let pathWithExtension = imagePath.addExtension(ext: ext)
         let securizedPath = pathWithExtension.securizePath()
-        guard let securizedPath = securizedPath else {
+        guard let securePath = securizedPath else {
             self.characterImageView.image = .notFoundIcon
             return
         }
         
         self.loader.startAnimating()
         self.characterImageView.image = nil
-        self.characterImageView.af.setImage(withURL: securizedPath,
+        self.characterImageView.af.setImage(withURL: securePath,
                                             imageTransition: .crossDissolve(0.25),
                                             completion: { response in
             
