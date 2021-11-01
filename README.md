@@ -3,7 +3,7 @@ The Marvel app is an iOS app that uses the official Marvel API to search through
 
 # Requirements
 - CocoaPods 1.11.2
-- Xcode 11 or above
+- Xcode 12 or above
 - iOS 12.0 +
 - Swift 5
 # Build Instructions
