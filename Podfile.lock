@@ -5,12 +5,14 @@ PODS:
   - CodableAlamofire (1.2.1):
     - Alamofire (~> 5.1.0)
   - CryptoSwift (1.4.2)
+  - MarvelUIComponents (0.1.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.1.0)
   - AlamofireImage
   - CodableAlamofire (~> 1.2.1)
   - CryptoSwift
+  - MarvelUIComponents (from `./MarvelUIComponents`)
 
 SPEC REPOS:
   trunk:
@@ -19,12 +21,17 @@ SPEC REPOS:
     - CodableAlamofire
     - CryptoSwift
 
+EXTERNAL SOURCES:
+  MarvelUIComponents:
+    :path: "./MarvelUIComponents"
+
 SPEC CHECKSUMS:
   Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
   AlamofireImage: c4a2ba349885fb3064feb74d2e547bd42ce9be10
   CodableAlamofire: 3532ececac18593b300d775f2a51feca2f83a2f1
   CryptoSwift: a532e74ed010f8c95f611d00b8bbae42e9fe7c17
+  MarvelUIComponents: 03e28b2ff3507de266891d95f50edd612878da6f
 
-PODFILE CHECKSUM: 46917f2a8e1211a58db043c680b602b398a444e0
+PODFILE CHECKSUM: 1ee9aaa892facfa81c413b306ef3bbee7276fedf
 
 COCOAPODS: 1.11.2

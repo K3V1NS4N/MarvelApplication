@@ -100,3 +100,4 @@ fastlane/test_output
 .bundle
 vendor/
 
+MarvelUIComponents/
